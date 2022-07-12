@@ -18,8 +18,9 @@ public class Employee {
     // Se agrega el departamento al que pertenece el empleado
     private Department department;
     
-    private Employee(String name, int age, String gender, Address adress, 
-            List<Phone> phones, List<Contact> contacs, Department department) {
+    private Employee(String name, int age, String gender, 
+            Address adress, List<Phone> phones, 
+            List<Contact> contacs, Department department) {
         this.name = name;
         this.age = age;
         this.gender = gender;
@@ -97,9 +98,10 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" + "name=" + name + ", age=" + age + ", gender=" 
-                + gender + ", \nadress=" + adress + ", \nphones=" + phones 
-                + ", \ncontacs=" + contacs + ", \ndepartment=" + department + '}';
+        return "Employee{" + "name=" + name + ", age=" + age 
+                + ", gender=" + gender + ", \nadress=" + adress 
+                + ", \nphones=" + phones + ", \ncontacs=" + contacs 
+                + ", \ndepartment=" + department + '}';
     }
     
     public static class EmployeeBuilder implements IBuilder<Employee>{
@@ -165,8 +167,9 @@ public class Employee {
         
         @Override
         public Employee build() {
-            // Se agrega a la respuesta el departamento construido previamente
-            return new Employee(name, age, gender, adress, phones, contacs, department);
+            // Se agrega a la respuesta el departamento construido
+            return new Employee(name, age, gender, adress, phones, 
+                    contacs, department);
         }
     }
 }

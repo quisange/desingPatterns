@@ -22,6 +22,23 @@ public class BuilderMain {
                 .addPhones("7788990099", null, "Casa")
                 .setDepartment("Financiero", "Departamento de Finanzas y Contabilidad")
                 .build();
+        
+        Employee emp1 = new Employee.EmployeeBuilder()
+                .setName("Luisa Valentina Pauta Valladares")
+                .setGender("Femele")
+                .setAge(34)
+                .setAdress("Circunvalación Sur" 
+                        + "Cuenca", "Azuay", "Ecuador", "120983")
+                .addContacs("Juan Romo", "0948374823", "432", "Casa", 
+                        "Av. Loja", "Cuenca", "Ecuador", "10023")
+                .addPhones("0958375847", null, "Celular")
+                .addPhones("0932843723", null, "Casa")
+                .setDepartment("Ventas", "Departamento de ventas y proovedores")
+                .build();
+        
+        System.out.println("---------- Empleado 1 ----------");
         System.out.println(emp);
+        System.out.println("---------- Empleado 2 ----------");
+        System.out.println(emp1);
     }
 }
