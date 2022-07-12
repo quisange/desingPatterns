@@ -30,10 +30,13 @@ public class Singleton {
         sequenceDaoImpl.save(seqSequence);
         sequenceDaoImpl.save(seqCustomer);*/
         
-        Customer customer = new Customer(0L, "Luis", "Sanchez", "Azogues", "4039584", "");
+        Customer customerSave = new Customer(0L, "Luis", "Sanchez", "Azogues", "4039584", "");
+        Customer customerUpdate = new Customer(3L, "Juan", "Castro", "Azogues", "4039584", "");
         
         CustomerDaoImpl dao = new CustomerDaoImpl();
-        dao.save(customer);
+        //dao.save(customerSave);
+        dao.getCustomer(customerUpdate.getId());
+        dao.update(customerUpdate);
     }
     
 }

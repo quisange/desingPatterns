@@ -21,7 +21,7 @@ public class CustomerDaoImpl implements CustomerDao {
      
     @Override
     public Customer save(Customer customer) throws SQLException {
-        String query = "INSERT INTO customer (ID, NAME, LASTNAME, ADDRESS, PHONE, OBSERVATION) "
+        String query = "INSERT INTO customer (id, name, lastname, address, phone, observation) "
                 + "VALUES (?, ?, ?, ?, ?, ?)";
         
         SequenceDaoImpl sequenceDaoImpl = new SequenceDaoImpl();
@@ -67,6 +67,7 @@ public class CustomerDaoImpl implements CustomerDao {
         }
   
         if (check) {
+            System.out.println("\nCliente en base\n\t" + customer);
             return customer;
          } else return null;
     }
@@ -96,4 +97,20 @@ public class CustomerDaoImpl implements CustomerDao {
         return customers;
     }
     
+    @Override
+    public Customer update(Customer customer) throws SQLException {
+        String query = "UPDATE customer set name=?, lastname=?, address=?, phone=?, observation=? where id = ?";
+        
+        PreparedStatement ps = conn.prepareStatement(query);
+        ps.setString(1, customer.getName());
+        ps.setString(2, customer.getLastName());
+        ps.setString(3, customer.getAddress());
+        ps.setString(4, customer.getPhone());
+        ps.setString(5, customer.getObservation());
+        ps.setLong(6, customer.getId());
+        ps.executeUpdate();
+        
+        System.out.println("\nCliente actualizado\n\t" + customer);
+        return customer;
+    }
 }

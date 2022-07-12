@@ -17,4 +17,5 @@ public interface CustomerDao {
     
     public List<Customer> getCustomers () throws SQLException;
     
+    public Customer update(Customer customer) throws SQLException;
 }
