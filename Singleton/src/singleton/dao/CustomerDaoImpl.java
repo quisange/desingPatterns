@@ -99,7 +99,8 @@ public class CustomerDaoImpl implements CustomerDao {
     
     @Override
     public Customer update(Customer customer) throws SQLException {
-        String query = "UPDATE customer set name=?, lastname=?, address=?, phone=?, observation=? where id = ?";
+        String query = "UPDATE customer set name=?, lastname=?, "
+                + "address=?, phone=?, observation=? where id = ?";
         
         PreparedStatement ps = conn.prepareStatement(query);
         ps.setString(1, customer.getName());

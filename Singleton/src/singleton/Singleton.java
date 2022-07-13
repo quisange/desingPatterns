@@ -1,11 +1,13 @@
 package singleton;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import singleton.dao.CustomerDaoImpl;
 import singleton.dao.SequenceDao;
 import singleton.dao.SequenceDaoImpl;
 import singleton.model.Customer;
 import singleton.model.Sequence;
+import singleton.util.DatabaseConnection;
 import singleton.util.DatabaseSetup;
 
 /**
@@ -30,13 +32,19 @@ public class Singleton {
         sequenceDaoImpl.save(seqSequence);
         sequenceDaoImpl.save(seqCustomer);*/
         
-        Customer customerSave = new Customer(0L, "Luis", "Sanchez", "Azogues", "4039584", "");
-        Customer customerUpdate = new Customer(3L, "Juan", "Castro", "Azogues", "4039584", "");
-        
         CustomerDaoImpl dao = new CustomerDaoImpl();
-        //dao.save(customerSave);
+        
+        /*Customer customerSave = new Customer(0L, "Pedro", "Cabrera", 
+                "Av. Remigio Crespo", "0953684258", "");
+        dao.save(customerSave);*/
+        
+        Customer customerUpdate = new Customer(6L, "Pedro", "Cabrera", 
+                "Av. Huayna Capac", "0953684258", "");
         dao.getCustomer(customerUpdate.getId());
         dao.update(customerUpdate);
+        
+        DatabaseConnection.closeConnection();
+        
     }
     
 }
