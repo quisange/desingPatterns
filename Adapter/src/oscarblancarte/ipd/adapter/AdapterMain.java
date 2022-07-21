@@ -18,8 +18,7 @@ public class AdapterMain {
         BankCreditRequest request = new BankCreditRequest();
         request.setCustomer("Oscar Blancarte");
         request.setAmount(10000);
-
-        /*
+        
         IBankAdapter xBank = new XBankCreditAdapter();
         BankCreditResponse xresponse = xBank.sendCreditRequest(request);
         System.out.println("xBank approved > " + xresponse.isApproved() + "\n");
@@ -35,7 +34,7 @@ public class AdapterMain {
         } else {
             System.out.println("Sorry your credit has not been approved");
         }
-        */
+        
         IBankAdapter zBank = new ZBankCreditAdapter();
         BankCreditResponse zresponse = zBank.sendCreditRequest(request);
         System.out.println("zBank approved > " + zresponse.isApproved() + "\n");
